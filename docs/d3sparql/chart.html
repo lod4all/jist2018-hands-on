@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <link rel="stylesheet" href="https://lod4all.github.io/jist2018-tutorial/lib/bootstrap.css"></link>
+    <script src="https://lod4all.github.io/jist2018-tutorial/lib/bootstrap.min.js"></script>
+    <script src="https://lod4all.github.io/jist2018-tutorial/lib/d3.v3.min.js"></script>
+    <script src="https://lod4all.github.io/jist2018-tutorial/d3sparql/d3sparql.js"></script>
+    <script>
+    function exec() {
+      var endpoint = d3.select("#endpoint").property("value")
+      var sparql = d3.select("#sparql").property("value")
+      d3sparql.query(endpoint, sparql, render)
+    }
+    function render(json) {
+      var config = {
+        "label_x": "Prefecture",
+        "label_y": "Area",
+        "var_x": "pref",
+        "var_y": "area",
+        "width":  700,  // canvas width
+        "height": 300,  // canvas height
+        "margin":  80,  // canvas margin
+        "selector": "#result"
+      }
+      d3sparql.barchart(json, config)
+    }
+    </script>
+    <style>
+    .bar:hover {
+      fill: brown;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="query" style="margin: 10px">
+      <h1>d3sparql sample</h1>
+      <form class="form-inline">
+        <label>SPARQL endpoint:</label>
+        <div class="input-append">
+          <input id="endpoint" class="span5" value="https://lod4all.net/api/sparql" type="text">
+          <button class="btn btn-primary btn-lg" type="button" onclick="exec()">Query</button>
+        </div>
+      </form>
+      <textarea id="sparql" class="span9" rows=15>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX yago: <http://dbpedia.org/class/yago/>
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+
+SELECT ?pref ?area
+WHERE {
+  ?s a yago:WikicatPrefecturesOfJapan ;
+     rdfs:label ?pref ;
+     dbpedia-owl:areaTotal ?area_total .
+  FILTER (lang(?pref) = 'en')
+  BIND ((?area_total / 1000 / 1000) AS ?area)
+}
+ORDER BY DESC(?area)
+      </textarea>
+    </div>
+    <div id="result"></div>
+  </body>
+</html>

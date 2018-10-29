@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <link rel="stylesheet" href="https://lod4all.github.io/jist2018-tutorial/lib/bootstrap.css"></link>
+    <script src="https://lod4all.github.io/jist2018-tutorial/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://mgskjaeveland.github.io/sgvizler/v/0.6/sgvizler.js"></script>
+    <script>
+    function exec() {
+
+      var endpoint_val = document.getElementById("endpoint").value.trim();
+      var sparql_val = document.getElementById("sparql").value.trim();
+
+      var Q = new sgvizler.Query();
+
+      Q.query(sparql_val)
+       .endpointURL(endpoint_val)
+       .endpointOutputFormat("json")
+       .chartFunction("google.visualization.BarChart")
+       .draw("result");
+    }
+    </script>
+  </head>
+  <body>
+    <div id="query" style="margin: 10px">
+      <h1>sgvizler sample</h1>
+      <form class="form-inline">
+        <label>SPARQL endpoint:</label>
+        <div class="input-append">
+          <input id="endpoint" class="span5" value="https://lod4all.net/api/sparql" type="text">
+          <button class="btn btn-primary btn-lg" type="button" onclick="exec()">Query</button>
+        </div>
+      </form>
+      <textarea id="sparql" class="span9" rows=15>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX yago: <http://dbpedia.org/class/yago/>
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+
+SELECT ?pref (xsd:int(?org_area) as ?area)
+WHERE {
+  ?s a yago:WikicatPrefecturesOfJapan ;
+     rdfs:label ?pref ;
+     dbpedia-owl:areaTotal ?area_total .
+  FILTER (lang(?pref) = 'en')
+  BIND ((?area_total / 1000 / 1000) AS ?org_area)
+}
+ORDER BY DESC(?area)
+      </textarea>
+    </div>
+    <div id="result"></div>
+  </body>
+</html>
