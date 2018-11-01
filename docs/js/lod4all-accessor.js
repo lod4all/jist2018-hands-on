@@ -4,7 +4,8 @@ function searchURIByKeyword()
     $('#status').text("Searching...");
 
     var keyword_val = document.getElementById("keyword").value.trim();
-    var graph_val = $('[name=country]').val().trim();
+    var graph_val = ""
+    //var graph_val = $('[name=country]').val().trim();
 	
     var lfasparql = new LFASparql();
     lfasparql.executeLiteral({
