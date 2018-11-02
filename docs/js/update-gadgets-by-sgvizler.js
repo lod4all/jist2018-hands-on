@@ -27,7 +27,7 @@ function updateGadget002(click_uri)
     Q.query(sparql_val)
        .endpointURL("https://lod4all.net/api/sparql?token=jist2018-data")
        .endpointOutputFormat("json")
-       .chartFunction("sgvizler.visualization.Table")
+       .chartFunction("google.visualization.LineChart")
        .draw("gadget-002");
 }
 
