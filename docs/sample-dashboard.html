@@ -41,17 +41,17 @@
     <div class="col-lg-6">
       <textarea id="sparql-001" cols="60" rows=15>
 SELECT DISTINCT * WHERE {
-    <%URI%> <http://www.w3.org/2004/02/skos/core#prefLabel> ?name .
-    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/stname> ?stname.}
-    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/address> ?address.}
-    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/city> ?city.}
-    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/county> ?county.}
-    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/zip> ?zip.}
-    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/estYmd> ?estYmd.}
-    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/uninum> ?uninum.}
-    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/fiUninum> ?fiUninum.}
-    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/cbsaNo> ?cbsaNo.}
-    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/cbsaMetroName> ?cbsaMetroName.}
+    <URI> <http://www.w3.org/2004/02/skos/core#prefLabel> ?name .
+    OPTIONAL{<URI> <http://lod4all.net/ontology/financial/stname> ?stname.}
+    OPTIONAL{<URI> <http://lod4all.net/ontology/financial/address> ?address.}
+    OPTIONAL{<URI> <http://lod4all.net/ontology/financial/city> ?city.}
+    OPTIONAL{<URI> <http://lod4all.net/ontology/financial/county> ?county.}
+    OPTIONAL{<URI> <http://lod4all.net/ontology/financial/zip> ?zip.}
+    OPTIONAL{<URI> <http://lod4all.net/ontology/financial/estYmd> ?estYmd.}
+    OPTIONAL{<URI> <http://lod4all.net/ontology/financial/uninum> ?uninum.}
+    OPTIONAL{<URI> <http://lod4all.net/ontology/financial/fiUninum> ?fiUninum.}
+    OPTIONAL{<URI> <http://lod4all.net/ontology/financial/cbsaNo> ?cbsaNo.}
+    OPTIONAL{<URI> <http://lod4all.net/ontology/financial/cbsaMetroName> ?cbsaMetroName.}
 }
       </textarea>
       </div>
@@ -61,7 +61,7 @@ SELECT DISTINCT * WHERE {
     <div class="col-lg-6">
     <textarea id="sparql-002" cols="60" rows=15>
 SELECT DISTINCT ?date ?key_label (xsd:int(?org_value as ?value) WHERE {
-    <%URI%> <http://lod4all.net/ontology/financial/data> ?financial_data.
+    <URI> <http://lod4all.net/ontology/financial/data> ?financial_data.
     ?financial_data <http://lod4all.net/ontology/financial/date> ?date .
     ?financial_data ?key ?org_value .
     ?key rdfs:label ?key_label.
@@ -75,22 +75,23 @@ SELECT DISTINCT ?date ?key_label (xsd:int(?org_value as ?value) WHERE {
     <div class="col-lg-6">
     <textarea id="sparql-003" cols="60" rows=15>
 SELECT DISTINCT * WHERE {
-    <%URI%> (<http://www.w3.org/2000/01/rdf-schema#label>|<http://www.w3.org/2004/02/skos/core#prefLabel>|<http://xmlns.com/foaf/0.1/name>|<http://schema.org/name>) ?name .
-    <%URI%> <http://www.w3.org/2000/01/rdf-schema#comment> ?comment.
-    OPTIONAL{<%URI%> <http://xmlns.com/foaf/0.1/homepage> ?homepage . }
-    OPTIONAL{<%URI%> <http://dbpedia.org/ontology/formationDate> ?formationDate . }
+    <URI> <http://xmlns.com/foaf/0.1/primaryTopic> ?dbpedia.
+    ?dbpedia (<http://www.w3.org/2000/01/rdf-schema#label>|<http://www.w3.org/2004/02/skos/core#prefLabel>|<http://xmlns.com/foaf/0.1/name>|<http://schema.org/name>) ?name .
+    ?dbpedia <http://www.w3.org/2000/01/rdf-schema#comment> ?comment.
+    OPTIONAL{ ?dbpedia <http://xmlns.com/foaf/0.1/homepage> ?homepage . }
+    OPTIONAL{ ?dbpedia <http://dbpedia.org/ontology/formationDate> ?formationDate . }
     OPTIONAL{
-        <%URI%> <http://dbpedia.org/ontology/foundationPlace> ?foundationPlace . 
+        ?dbpedia <http://dbpedia.org/ontology/foundationPlace> ?foundationPlace . 
         ?foundationPlace <http://www.w3.org/2000/01/rdf-schema#label> ?foundationPlace_label. 
         FILTER langMatches(lang(?foundationPlace_label), "en")
     }
     OPTIONAL{
-        <%URI%> <http://dbpedia.org/ontology/foundedBy> ?foundedBy . 
+        ?dbpedia <http://dbpedia.org/ontology/foundedBy> ?foundedBy . 
         ?foundedBy <http://www.w3.org/2000/01/rdf-schema#label> ?foundedBy_label. 
         FILTER langMatches(lang(?foundedBy_label), "en")
     }
     OPTIONAL{
-        <%URI%> <http://dbpedia.org/ontology/locationCity> ?locationCity . 
+        ?dbpedia <http://dbpedia.org/ontology/locationCity> ?locationCity . 
         ?locationCity <http://www.w3.org/2000/01/rdf-schema#label> ?locationCity_label. 
         FILTER langMatches(lang(?locationCity_label), "en")
     }       
