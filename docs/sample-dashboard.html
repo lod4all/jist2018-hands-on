@@ -61,7 +61,7 @@ SELECT DISTINCT * WHERE {
     <div class="col-lg-6" id="gadget-002" style="border: dashed 0.5px #5b8bd0; height:400px; overflow:scroll;"></div>
     <div class="col-lg-6">
     <textarea id="sparql-002" cols="60" rows="15">
-SELECT DISTINCT (xsd:date(?org_date) as ?date) (xsd:int(?org_value) as ?value) WHERE {
+SELECT DISTINCT (xsd:datetime(?org_date) as ?date) (xsd:int(?org_value) as ?asset) WHERE {
     <%URI%> <http://lod4all.net/ontology/financial/data> ?financial_data.
     ?financial_data <http://lod4all.net/ontology/financial/date> ?org_date .
     ?financial_data <http://lod4all.net/ontology/financial/asset> ?org_value .
