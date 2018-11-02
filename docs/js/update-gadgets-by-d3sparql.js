@@ -9,7 +9,7 @@ function updateGadget001(click_uri)
 {
     $('#gadget-001').empty();
     var sparql_val = document.getElementById("sparql-001").value.trim();
-    sparql_val = sparql_val.replace(/<URI>/g, '<'+click_uri+'>');
+    sparql_val = sparql_val.replace(/<%URI%>/g, '<'+click_uri+'>');
     d3sparql.query("https://lod4all.net/api/sparql?token=jist2018-data", sparql_val, render001);
 }
 
@@ -20,25 +20,26 @@ function render001(json) {
       d3sparql.htmlhash(json, config);
 }
 
-
 function updateGadget002(click_uri)
 {
     $('#gadget-002').empty();
-    var sparql_val = document.getElementById("sparql-002").value.trim();
+    var sparql_val = document.getElementById("sparql-001").value.trim();
     sparql_val = sparql_val.replace(/<%URI%>/g, '<'+click_uri+'>');
-    var Q = new sgvizler.Query();
-    Q.query(sparql_val)
-       .endpointURL("https://lod4all.net/api/sparql?token=jist2018-data")
-       .endpointOutputFormat("json")
-       .chartFunction("google.visualization.AnnotatedTimeLine")
-       .draw("gadget-002");
+    d3sparql.query("https://lod4all.net/api/sparql?token=jist2018-data", sparql_val, render002);
+}
+
+function render002(json) {
+      var config = {
+        "selector": "#gadget-002"
+      };
+      d3sparql.htmlhash(json, config);
 }
 
 function updateGadget003(click_uri)
 {
     $('#gadget-003').empty();
     var sparql_val = document.getElementById("sparql-003").value.trim();
-    sparql_val = sparql_val.replace(/<URI>/g, '<'+click_uri+'>');
+    sparql_val = sparql_val.replace(/<%URI%>/g, '<'+click_uri+'>');
     d3sparql.query("https://lod4all.net/api/sparql?token=jist2018-data", sparql_val, render003);
 }
 

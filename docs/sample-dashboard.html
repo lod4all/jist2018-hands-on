@@ -14,7 +14,8 @@
     <script src="https://lod4all.github.io/jist2018-hands-on/d3sparql/d3sparql.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript" src="https://mgskjaeveland.github.io/sgvizler/v/0.6/sgvizler.js"></script>
-    <script type="text/javascript" src="https://lod4all.github.io/jist2018-hands-on/js/update-gadgets.js"></script>
+    <!--<script type="text/javascript" src="https://lod4all.github.io/jist2018-hands-on/js/update-gadgets-by-d3sparql.js"></script>-->
+    <script type="text/javascript" src="https://lod4all.github.io/jist2018-hands-on/js/update-gadgets-by-sgvizler.js">
   </head>
   <body>
      <div class="container-fluid">
@@ -41,17 +42,17 @@
     <div class="col-lg-6">
       <textarea id="sparql-001" cols="60" rows=15>
 SELECT DISTINCT * WHERE {
-    <URI> <http://www.w3.org/2004/02/skos/core#prefLabel> ?name .
-    OPTIONAL{<URI> <http://lod4all.net/ontology/financial/stname> ?stname.}
-    OPTIONAL{<URI> <http://lod4all.net/ontology/financial/address> ?address.}
-    OPTIONAL{<URI> <http://lod4all.net/ontology/financial/city> ?city.}
-    OPTIONAL{<URI> <http://lod4all.net/ontology/financial/county> ?county.}
-    OPTIONAL{<URI> <http://lod4all.net/ontology/financial/zip> ?zip.}
-    OPTIONAL{<URI> <http://lod4all.net/ontology/financial/estYmd> ?estYmd.}
-    OPTIONAL{<URI> <http://lod4all.net/ontology/financial/uninum> ?uninum.}
-    OPTIONAL{<URI> <http://lod4all.net/ontology/financial/fiUninum> ?fiUninum.}
-    OPTIONAL{<URI> <http://lod4all.net/ontology/financial/cbsaNo> ?cbsaNo.}
-    OPTIONAL{<URI> <http://lod4all.net/ontology/financial/cbsaMetroName> ?cbsaMetroName.}
+    <%URI%> <http://www.w3.org/2004/02/skos/core#prefLabel> ?name .
+    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/stname> ?stname.}
+    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/address> ?address.}
+    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/city> ?city.}
+    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/county> ?county.}
+    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/zip> ?zip.}
+    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/estYmd> ?estYmd.}
+    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/uninum> ?uninum.}
+    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/fiUninum> ?fiUninum.}
+    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/cbsaNo> ?cbsaNo.}
+    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/cbsaMetroName> ?cbsaMetroName.}
 }
       </textarea>
       </div>
@@ -75,7 +76,7 @@ SELECT DISTINCT ?date ?key_label (xsd:int(?org_value as ?value) WHERE {
     <div class="col-lg-6">
     <textarea id="sparql-003" cols="60" rows=15>
 SELECT DISTINCT * WHERE {
-    <URI> <http://xmlns.com/foaf/0.1/primaryTopic> ?dbpedia.
+    <%URI%> <http://xmlns.com/foaf/0.1/primaryTopic> ?dbpedia.
     ?dbpedia (<http://www.w3.org/2000/01/rdf-schema#label>|<http://www.w3.org/2004/02/skos/core#prefLabel>|<http://xmlns.com/foaf/0.1/name>|<http://schema.org/name>) ?name .
     ?dbpedia <http://www.w3.org/2000/01/rdf-schema#comment> ?comment.
     OPTIONAL{ ?dbpedia <http://xmlns.com/foaf/0.1/homepage> ?homepage . }
