@@ -25,12 +25,12 @@ function updateGadget002(click_uri)
 {
     $('#gadget-002').empty();
     var sparql_val = document.getElementById("sparql-002").value.trim();
-    sparql_val = sparql_val.replace(/<URI>/g, '<'+click_uri+'>');
+    sparql_val = sparql_val.replace(/<%URI%>/g, '<'+click_uri+'>');
     var Q = new sgvizler.Query();
     Q.query(sparql_val)
        .endpointURL("https://lod4all.net/api/sparql?token=jist2018-data")
        .endpointOutputFormat("json")
-       .chartFunction("google.visualization.LineChart")
+       .chartFunction("google.visualization.AnnotatedTimeLine")
        .draw("gadget-002");
 }
 

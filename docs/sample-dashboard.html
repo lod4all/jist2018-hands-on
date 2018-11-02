@@ -61,7 +61,7 @@ SELECT DISTINCT * WHERE {
     <div class="col-lg-6">
     <textarea id="sparql-002" cols="60" rows=15>
 SELECT DISTINCT ?date ?key_label (xsd:int(?org_value as ?value) WHERE {
-    <URI> <http://lod4all.net/ontology/financial/data> ?financial_data.
+    <%URI%> <http://lod4all.net/ontology/financial/data> ?financial_data.
     ?financial_data <http://lod4all.net/ontology/financial/date> ?date .
     ?financial_data ?key ?org_value .
     ?key rdfs:label ?key_label.
