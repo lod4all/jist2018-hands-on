@@ -40,7 +40,7 @@
     <div class="row">
     <div class="col-lg-6" id="gadget-001" style="border: dashed 0.5px #5b8bd0; height:400px; overflow:scroll;"></div>
     <div class="col-lg-6">
-      <textarea id="sparql-001" cols="60" rows=15>
+      <textarea id="sparql-001" cols="60" rows="15">
 SELECT DISTINCT * WHERE {
     <%URI%> <http://www.w3.org/2004/02/skos/core#prefLabel> ?name .
     OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/stname> ?stname.}
@@ -60,13 +60,11 @@ SELECT DISTINCT * WHERE {
     <div class="row">
     <div class="col-lg-6" id="gadget-002" style="border: dashed 0.5px #5b8bd0; height:400px; overflow:scroll;"></div>
     <div class="col-lg-6">
-    <textarea id="sparql-002" cols="60" rows=15>
-	    SELECT DISTINCT (xsd:date(?org_date) as ?date) (xsd:string(?org_key_label) as ?key_label) (xsd:int(?org_value) as ?value) WHERE {
+    <textarea id="sparql-002" cols="60" rows="15">
+SELECT DISTINCT (xsd:date(?org_date) as ?date) (xsd:int(?org_value) as ?value) WHERE {
     <%URI%> <http://lod4all.net/ontology/financial/data> ?financial_data.
     ?financial_data <http://lod4all.net/ontology/financial/date> ?org_date .
-    ?financial_data ?key ?org_value .
-    ?key rdfs:label ?org_key_label.
-    FILTER langMatches(lang(?key_label), "en")
+    ?financial_data <http://lod4all.net/ontology/financial/asset> ?org_value .
 } ORDER BY DESC(?date)
       </textarea>
     </div>
@@ -74,7 +72,7 @@ SELECT DISTINCT * WHERE {
     <div class="row">
     <div class="col-lg-6" id="gadget-003" style="border: dashed 0.5px #5b8bd0; height:400px; overflow:scroll;"></div>
     <div class="col-lg-6">
-    <textarea id="sparql-003" cols="60" rows=15>
+    <textarea id="sparql-003" cols="60" rows="15">
 SELECT DISTINCT * WHERE {
     <%URI%> <http://xmlns.com/foaf/0.1/primaryTopic> ?dbpedia.
     ?dbpedia (<http://www.w3.org/2000/01/rdf-schema#label>|<http://www.w3.org/2004/02/skos/core#prefLabel>|<http://xmlns.com/foaf/0.1/name>|<http://schema.org/name>) ?name .
