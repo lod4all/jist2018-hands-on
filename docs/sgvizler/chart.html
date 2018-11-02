@@ -18,7 +18,7 @@
       Q.query(sparql_val)
        .endpointURL(endpoint_val)
        .endpointOutputFormat("json")
-       .chartFunction("google.visualization.BarChart")
+       .chartFunction("google.visualization.LineChart")
        .draw("result");
     }
     </script>
@@ -34,19 +34,11 @@
         </div>
       </form>
       <textarea id="sparql" class="span9" rows=15>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX yago: <http://dbpedia.org/class/yago/>
-PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
-
-SELECT ?pref (xsd:int(?org_area) as ?area)
-WHERE {
-  ?s a yago:WikicatPrefecturesOfJapan ;
-     rdfs:label ?pref ;
-     dbpedia-owl:areaTotal ?area_total .
-  FILTER (lang(?pref) = 'en')
-  BIND ((?area_total / 1000 / 1000) AS ?org_area)
-}
-ORDER BY DESC(?area)
+SELECT DISTINCT (xsd:datetime(?org_date) as ?date) (xsd:int(?org_value) as ?asset) WHERE {
+    <http://lod4all.net/resource/financial/fdicCert-3511> <http://lod4all.net/ontology/financial/data> ?financial_data.
+    ?financial_data <http://lod4all.net/ontology/financial/date> ?org_date .
+    ?financial_data <http://lod4all.net/ontology/financial/asset> ?org_value .
+} ORDER BY DESC(?date)
       </textarea>
     </div>
     <div id="result"></div>
