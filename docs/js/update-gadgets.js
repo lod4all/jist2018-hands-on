@@ -9,7 +9,7 @@ function updateGadget001(click_uri)
 {
     $('#gadget-001').empty();
     var sparql_val = document.getElementById("sparql-001").value.trim();
-    sparql_val = sparql_val.replace( '%URI%', click_uri);
+    sparql_val = sparql_val.replace(/%URI%/g, click_uri);
     var Q = new sgvizler.Query();
     Q.query(sparql_val)
        .endpointURL("https://lod4all.net/api/sparql?token=jist2018-data")
@@ -22,7 +22,7 @@ function updateGadget002(click_uri)
 {
     $('#gadget-002').empty();
     var sparql_val = document.getElementById("sparql-002").value.trim();
-    sparql_val = sparql_val.replace( '%URI%', click_uri);
+    sparql_val = sparql_val.replace(/%URI%/g, click_uri);
     var Q = new sgvizler.Query();
     Q.query(sparql_val)
        .endpointURL("https://lod4all.net/api/sparql?token=jist2018-data")
@@ -35,7 +35,7 @@ function updateGadget003(click_uri)
 {
     $('#gadget-003').empty();
     var sparql_val = document.getElementById("sparql-003").value.trim();
-    sparql_val = sparql_val.replace( '%URI%', click_uri);
+    sparql_val = sparql_val..replace(/%URI%/g, click_uri);
     d3sparql.query("https://lod4all.net/api/sparql?token=jist2018-data", sparql_val, render003);
 }
 
