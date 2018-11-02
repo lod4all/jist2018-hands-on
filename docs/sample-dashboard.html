@@ -40,10 +40,18 @@
     <div class="col-lg-6" id="gadget-001" style="border: dashed 0.5px #5b8bd0; height:400px; overflow:scroll;"></div>
     <div class="col-lg-6">
       <textarea id="sparql-001" cols="60" rows=15>
-SELECT distinct ?id ?name
-WHERE {
-    <%URI%> <http://www.w3.org/ns/org#identifier> ?id;
-        <http://www.w3.org/2004/02/skos/core#prefLabel> ?name.
+SELECT DISTINCT * WHERE {
+    <%URI%> <http://www.w3.org/2004/02/skos/core#prefLabel> ?name .
+    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/stname> ?stname.}
+    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/address> ?address.}
+    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/city> ?city.}
+    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/county> ?county.}
+    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/zip> ?zip.}
+    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/estYmd> ?estYmd.}
+    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/uninum> ?uninum.}
+    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/fiUninum> ?fiUninum.}
+    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/cbsaNo> ?cbsaNo.}
+    OPTIONAL{<%URI%> <http://lod4all.net/ontology/financial/cbsaMetroName> ?cbsaMetroName.}
 }
       </textarea>
       </div>
@@ -52,11 +60,13 @@ WHERE {
     <div class="col-lg-6" id="gadget-002" style="border: dashed 0.5px #5b8bd0; height:400px; overflow:scroll;"></div>
     <div class="col-lg-6">
     <textarea id="sparql-002" cols="60" rows=15>
-SELECT ?p (xsd:int(count(distinct ?o)) as ?cnt)
-WHERE {
-    <%URI%> ?p ?o.
-}
-GROUP BY ?p ORDER BY DESC(?cnt)
+SELECT DISTINCT ?date ?key_label (xsd:int(?org_value as ?value) WHERE {
+    <%URI%> <http://lod4all.net/ontology/financial/data> ?financial_data.
+    ?financial_data <http://lod4all.net/ontology/financial/date> ?date .
+    ?financial_data ?key ?org_value .
+    ?key rdfs:label ?key_label.
+    FILTER langMatches(lang(?key_label), "en")
+} ORDER BY DESC(?date)
       </textarea>
     </div>
     </div>
@@ -64,11 +74,29 @@ GROUP BY ?p ORDER BY DESC(?cnt)
     <div class="col-lg-6" id="gadget-003" style="border: dashed 0.5px #5b8bd0; height:400px; overflow:scroll;"></div>
     <div class="col-lg-6">
     <textarea id="sparql-003" cols="60" rows=15>
-SELECT ?p (count(distinct ?o) as ?cnt)
-WHERE {
-    <%URI%> ?p ?o.
+SELECT DISTINCT * WHERE {
+    <%URI%> (<http://www.w3.org/2000/01/rdf-schema#label>|<http://www.w3.org/2004/02/skos/core#prefLabel>|<http://xmlns.com/foaf/0.1/name>|<http://schema.org/name>) ?name .
+    <%URI%> <http://www.w3.org/2000/01/rdf-schema#comment> ?comment.
+    OPTIONAL{<%URI%> <http://xmlns.com/foaf/0.1/homepage> ?homepage . }
+    OPTIONAL{<%URI%> <http://dbpedia.org/ontology/formationDate> ?formationDate . }
+    OPTIONAL{
+        <%URI%> <http://dbpedia.org/ontology/foundationPlace> ?foundationPlace . 
+        ?foundationPlace <http://www.w3.org/2000/01/rdf-schema#label> ?foundationPlace_label. 
+        FILTER langMatches(lang(?foundationPlace_label), "en")
+    }
+    OPTIONAL{
+        <%URI%> <http://dbpedia.org/ontology/foundedBy> ?foundedBy . 
+        ?foundedBy <http://www.w3.org/2000/01/rdf-schema#label> ?foundedBy_label. 
+        FILTER langMatches(lang(?foundedBy_label), "en")
+    }
+    OPTIONAL{
+        <%URI%> <http://dbpedia.org/ontology/locationCity> ?locationCity . 
+        ?locationCity <http://www.w3.org/2000/01/rdf-schema#label> ?locationCity_label. 
+        FILTER langMatches(lang(?locationCity_label), "en")
+    }       
+    FILTER langMatches(lang(?name), "en")
+    FILTER langMatches(lang(?comment), "en")
 }
-GROUP BY ?p ORDER BY DESC(?cnt)
       </textarea>
     </div>
     </div>
