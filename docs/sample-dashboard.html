@@ -37,6 +37,7 @@
     </div>
     <div class="col-lg-8">
     <div class="row">
+    <div class="col-lg-6" id="gadget-001" style="border: dashed 2px #5b8bd0;"></div>
     <div class="col-lg-6">
       <textarea id="sparql-001" cols="60" rows=15>
 SELECT distinct ?id ?name
@@ -46,9 +47,9 @@ WHERE {
 }
       </textarea>
       </div>
-      <div class="col-lg-6" id="gadget-001"></div>
     </div>
     <div class="row">
+    <div class="col-lg-6" id="gadget-002" style="border: dashed 2px #5b8bd0;"></div>
     <div class="col-lg-6">
     <textarea id="sparql-002" cols="60" rows=15>
 SELECT ?p (xsd:int(count(distinct ?o)) as ?cnt)
@@ -58,10 +59,10 @@ WHERE {
 GROUP BY ?p ORDER BY DESC(?cnt)
       </textarea>
     </div>
-      <div class="col-lg-6" id="gadget-002"></div>
     </div>
     <div class="row">
     <div class="col-lg-6">
+    <div class="col-lg-6" id="gadget-003" style="border: dashed 2px #5b8bd0;"></div>
     <textarea id="sparql-003" cols="60" rows=15>
 SELECT ?p (count(distinct ?o) as ?cnt)
 WHERE {
@@ -70,7 +71,6 @@ WHERE {
 GROUP BY ?p ORDER BY DESC(?cnt)
       </textarea>
     </div>
-      <div class="col-lg-6" id="gadget-003"></div>
     </div>
     </div>
     </div>
