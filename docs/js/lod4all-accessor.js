@@ -46,7 +46,7 @@ function successKeywordRequest(data)
     td.append(a_tag);
     tr.append(td);
     var td = $('<td>');
-    td.text(object_val);
+    td.text("Wells Fargo Bank");
     tr.append(td);
     tbody.append(tr);
 
