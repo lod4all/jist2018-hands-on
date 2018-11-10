@@ -1,4 +1,3 @@
-
 function updateGadgets(click_uri)
 {
     updateGadget001(click_uri);
@@ -34,15 +33,15 @@ function updateGadget002(click_uri)
        .draw("gadget-002");
 }
 
-function updateGadget001(click_uri)
+function updateGadget003(click_uri)
 {
     $('#gadget-003').empty();
     var sparql_val = document.getElementById("sparql-003").value.trim();
     sparql_val = sparql_val.replace(/<%URI%>/g, '<'+click_uri+'>');
-    d3sparql.query("https://lod4all.net/api/sparql", sparql_val, render001);
+    d3sparql.query("https://lod4all.net/api/sparql", sparql_val, render003);
 }
 
-function render001(json) {
+function render003(json) {
       var config = {
         "selector": "#gadget-003"
       };
