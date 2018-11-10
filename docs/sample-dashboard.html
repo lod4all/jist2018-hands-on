@@ -81,21 +81,8 @@ SELECT DISTINCT * WHERE {
     ?dbpedia <http://www.w3.org/2000/01/rdf-schema#comment> ?comment.
     OPTIONAL{ ?dbpedia <http://xmlns.com/foaf/0.1/homepage> ?homepage . }
     OPTIONAL{ ?dbpedia <http://dbpedia.org/ontology/formationDate> ?formationDate . }
-    OPTIONAL{
-        ?dbpedia <http://dbpedia.org/ontology/foundationPlace> ?foundationPlace . 
-        ?foundationPlace <http://www.w3.org/2000/01/rdf-schema#label> ?foundationPlace_label. 
-        FILTER langMatches(lang(?foundationPlace_label), "en")
-    }
-    OPTIONAL{
-        ?dbpedia <http://dbpedia.org/ontology/foundedBy> ?foundedBy . 
-        ?foundedBy <http://www.w3.org/2000/01/rdf-schema#label> ?foundedBy_label. 
-        FILTER langMatches(lang(?foundedBy_label), "en")
-    }
-    OPTIONAL{
-        ?dbpedia <http://dbpedia.org/ontology/locationCity> ?locationCity . 
-        ?locationCity <http://www.w3.org/2000/01/rdf-schema#label> ?locationCity_label. 
-        FILTER langMatches(lang(?locationCity_label), "en")
-    }       
+    OPTIONAL{ ?dbpedia <http://dbpedia.org/ontology/foundationPlace> ?foundationPlace. }
+    OPTIONAL{ ?dbpedia <http://dbpedia.org/ontology/foundedBy> ?foundedBy. }
     FILTER langMatches(lang(?name), "en")
     FILTER langMatches(lang(?comment), "en")
 }
