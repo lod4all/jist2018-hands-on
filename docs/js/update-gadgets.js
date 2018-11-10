@@ -1,3 +1,4 @@
+
 function updateGadgets(click_uri)
 {
     updateGadget001(click_uri);
