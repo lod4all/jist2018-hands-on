@@ -4,7 +4,7 @@ function searchURIByKeyword()
     $('#status').text("Searching...");
 
     var keyword_val = document.getElementById("keyword").value.trim();
-    var graph_val = "http://lod4all.net/graph/financial-data"	
+    var graph_val = "http://lod4all.net/graph/fdic";	
     var lfasparql = new LFASparql();
     lfasparql.executeLiteral({
         async: true,
@@ -37,6 +37,7 @@ function successKeywordRequest(data)
 
     var tbody = $('<tbody>');
 
+    /**
     var tr = $('<tr>');
     var td = $('<td>');
     var a_tag = $('<a>');
@@ -49,12 +50,12 @@ function successKeywordRequest(data)
     td.text("Wells Fargo Bank");
     tr.append(td);
     tbody.append(tr);
+    */
 
-    /**
     triples = data["triples"];
     for (var i = 0; i < triples.length; i++) {
         var graph_val = triples[i]["graph"];
-        if("http://lod4all.net/graph/financial-data" == graph_val){
+        if("http://lod4all.net/graph/fdic" == graph_val){
             var subject_val = triples[i]["subject"];
             var object_val = triples[i]["object"];
 
@@ -72,7 +73,6 @@ function successKeywordRequest(data)
             tbody.append(tr);
         }
     }
-    **/
 
     table_elem.append(tbody);
     $('#entities-search-result').append(table_elem);

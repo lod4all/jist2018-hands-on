@@ -12,7 +12,7 @@ function updateGadget001(click_uri)
     sparql_val = sparql_val.replace(/<%URI%>/g, '<'+click_uri+'>');
     var Q = new sgvizler.Query();
     Q.query(sparql_val)
-       .endpointURL("https://lod4all.net/api/sparql?token=jist2018-data")
+       .endpointURL("https://lod4all.net/api/sparql")
        .endpointOutputFormat("json")
        .chartFunction("sgvizler.visualization.Table")
        .draw("gadget-001");
@@ -25,7 +25,7 @@ function updateGadget002(click_uri)
     sparql_val = sparql_val.replace(/<%URI%>/g, '<'+click_uri+'>');
     var Q = new sgvizler.Query();
     Q.query(sparql_val)
-       .endpointURL("https://lod4all.net/api/sparql?token=jist2018-data")
+       .endpointURL("https://lod4all.net/api/sparql")
        .endpointOutputFormat("json")
        .chartFunction("google.visualization.LineChart")
        .draw("gadget-002");
@@ -38,7 +38,7 @@ function updateGadget003(click_uri)
     sparql_val = sparql_val.replace(/<%URI%>/g, '<'+click_uri+'>');
     var Q = new sgvizler.Query();
     Q.query(sparql_val)
-       .endpointURL("https://lod4all.net/api/sparql?token=jist2018-data")
+       .endpointURL("https://lod4all.net/api/sparql")
        .endpointOutputFormat("json")
        .chartFunction("sgvizler.visualization.Table")
        .draw("gadget-003");
