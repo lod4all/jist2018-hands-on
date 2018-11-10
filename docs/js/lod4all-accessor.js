@@ -11,7 +11,7 @@ function searchURIByKeyword()
         graph: graph_val,
         query: keyword_val,
         offset: 0,
-        size: 50,
+        size: 10000,
         success: successKeywordRequest,
         error: errorRequest
     });
@@ -37,7 +37,7 @@ function successKeywordRequest(data)
 
     var tbody = $('<tbody>');
 
-    /**
+    
     var tr = $('<tr>');
     var td = $('<td>');
     var a_tag = $('<a>');
@@ -50,8 +50,8 @@ function successKeywordRequest(data)
     td.text("Wells Fargo Bank");
     tr.append(td);
     tbody.append(tr);
-    */
-
+    
+    /**
     triples = data["triples"];
     for (var i = 0; i < triples.length; i++) {
         var graph_val = triples[i]["graph"];
@@ -73,6 +73,7 @@ function successKeywordRequest(data)
             tbody.append(tr);
         }
     }
+    */
 
     table_elem.append(tbody);
     $('#entities-search-result').append(table_elem);
