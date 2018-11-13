@@ -33,12 +33,13 @@
           <button class="btn btn-primary btn-lg" type="button" onclick="exec()">Query</button>
         </div>
       </form>
-      <textarea id="sparql" class="span9" rows=15>
-SELECT DISTINCT (xsd:datetime(?org_date) as ?date) (xsd:int(?org_value) as ?asset) WHERE {
+      <textarea id="sparql" class="span9" rows=1>
+SELECT ?date (xsd:int(?org_value) as ?asset) WHERE {
     <http://lod4all.net/resource/financial/fdicCert-3511> <http://lod4all.net/ontology/financial/data> ?financial_data.
     ?financial_data <http://lod4all.net/ontology/financial/date> ?org_date .
+    BIND(strbefore(?org_date,"T") as ?date)
     ?financial_data <http://lod4all.net/ontology/financial/asset> ?org_value .
-} ORDER BY DESC(?date)
+} ORDER BY (?date)
       </textarea>
     </div>
     <div id="result"></div>

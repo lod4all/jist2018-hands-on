@@ -63,7 +63,7 @@ SELECT DISTINCT * WHERE {
     <div class="col-lg-6">
     <textarea id="sparql-002" cols="60" rows="15">
 SELECT ?date (xsd:int(?org_value) as ?asset) WHERE {
-    <http://lod4all.net/resource/financial/fdicCert-3511> <http://lod4all.net/ontology/financial/data> ?financial_data.
+    <%URI%> <http://lod4all.net/ontology/financial/data> ?financial_data.
     ?financial_data <http://lod4all.net/ontology/financial/date> ?org_date .
     BIND(strbefore(?org_date,"T") as ?date)
     ?financial_data <http://lod4all.net/ontology/financial/asset> ?org_value .
