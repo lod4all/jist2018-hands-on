@@ -55,7 +55,7 @@ WHERE {
   FILTER (lang(?pref) = 'en')
   BIND ((?area_total / 1000 / 1000) AS ?area)
 }
-ORDER BY DESC(?area)
+ORDER BY DESC(?area) limit 10
       </textarea>
     </div>
     <div id="result"></div>
