@@ -67,7 +67,7 @@ SELECT DISTINCT * WHERE {
     <textarea id="sparql-002" cols="60" rows="15">
 PREFIX l4a-fin: <http://lod4all.net/ontology/financial/>
 
-SELECT ?date (xsd:int(?org_value) as ?value) WHERE {
+SELECT ?date (xsd:decimal(?org_value) as ?value) WHERE {
     <%URI%> l4a-fin:data ?financial_data.
     ?financial_data l4a-fin:date ?org_date .
     ?financial_data l4a-fin:asset ?org_value .
