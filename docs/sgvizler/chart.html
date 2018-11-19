@@ -34,11 +34,14 @@
         </div>
       </form>
       <textarea id="sparql" class="span9" rows=15>
-SELECT ?date (xsd:int(?org_value) as ?asset) WHERE {
-    <http://lod4all.net/resource/financial/fdicCert-3511> <http://lod4all.net/ontology/financial/data> ?financial_data.
-    ?financial_data <http://lod4all.net/ontology/financial/date> ?org_date .
+PREFIX l4a-fin: <http://lod4all.net/ontology/financial/>
+PREFIX l4a-fin-r: <http://lod4all.net/resource/financial/> 
+
+SELECT ?date (xsd:int(?org_value) as ?value) WHERE {
+    l4a-fin-r:fdicCert-3511 l4a-fin:data ?financial_data.
+    ?financial_data l4a-fin:date ?org_date .
+    ?financial_data l4a-fin:asset ?org_value .
     BIND(strbefore(?org_date,"T") as ?date)
-    ?financial_data <http://lod4all.net/ontology/financial/asset> ?org_value .
 } ORDER BY (?date)
       </textarea>
     </div>
