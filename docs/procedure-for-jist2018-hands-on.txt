@@ -1,4 +1,5 @@
 1.Get github account
-2.Fork your own copy of lod4all/jist2018-hands-on to your account
-3.Set github page
-4.Access and check your page: https:/<your-account>.github.io/jist2018-hands-on/
+2.Access "https://github.com/lod4all/jist2018-hands-on"
+3.Fork your own copy of lod4all/jist2018-hands-on to your account
+4.Set github page
+5.Access and check your page: https:/<your-account>.github.io/jist2018-hands-on/
