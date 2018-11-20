@@ -104,7 +104,7 @@ function getSPARQL004()
     var sparql_query = `
 PREFIX l4a-fin: <http://lod4all.net/ontology/financial/>
 
-SELECT ?county (count(?branch) as ?num_of_branches) where
+SELECT ?county (xsd:decimal(count(?branch)) as ?num_of_branches) where
 {
   <%URI%> l4a-fin:branch ?branch.
   ?branch l4a-fin:county ?county.
@@ -123,7 +123,7 @@ function updateGadget004(click_uri)
     sparql_val = sparql_val.replace(/<%URI%>/g, '<'+click_uri+'>');
     var Q = new sgvizler.Query();
     Q.query(sparql_val)
-       .endpointURL("https://lod4all.net/api/sparql?token=jist2018")
+       .endpointURL("https://lod4all.net/api/sparql?token=jist2018-data")
        .endpointOutputFormat("json")
        .chartFunction("google.visualization.PieChart")
        .draw("gadget-004");
