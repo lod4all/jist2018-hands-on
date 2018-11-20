@@ -97,38 +97,11 @@ SELECT ?date ?insolvency WHERE {
 } ORDER BY (?date)
 -----------------------------------------------------------
 
-Add new gadget
+Add new gadget:Design SPARQL
 -----------------------------------------------------------
-SELECT ?county (count(?branch) as ?num_of_branches) where
+function getSPARQL004()
 {
-  <%URI%> <http://lod4all.net/ontology/financial/branch> ?branch.
-  ?branch <http://lod4all.net/ontology/financial/county> ?county.
-} group by ?county order by desc(?num_of_branches)
------------------------------------------------------------
-
-Add new gadget
------------------------------------------------------------
-function updateGadget004(click_uri)
-{
-    $('#gadget-004').empty();
-    var sparql_val = document.getElementById("sparql-004").value.trim();
-    sparql_val = sparql_val.replace(/<%URI%>/g, '<'+click_uri+'>');
-    var Q = new sgvizler.Query();
-    Q.query(sparql_val)
-       .endpointURL("https://lod4all.net/api/sparql")
-       .endpointOutputFormat("json")
-       .chartFunction("google.visualization.PieChart")
-       .draw("gadget-004");
-}
------------------------------------------------------------
-
-Add new gadget
------------------------------------------------------------
-<!------ gadget 004 ------>
-    <div class="row">
-    <div class="col-lg-6" id="gadget-004" style="border: dashed 0.5px #5b8bd0; height:400px; overflow:scroll;"></div>
-    <div class="col-lg-6">
-    <textarea id="sparql-004" cols="60" rows="15">
+    var sparql_query = `
 PREFIX l4a-fin: <http://lod4all.net/ontology/financial/>
 
 SELECT ?county (count(?branch) as ?num_of_branches) where
@@ -136,7 +109,28 @@ SELECT ?county (count(?branch) as ?num_of_branches) where
   <%URI%> l4a-fin:branch ?branch.
   ?branch l4a-fin:county ?county.
 } group by ?county order by desc(?num_of_branches)
-      </textarea>
-    </div>
-    </div>
+    `
+    return sparql_query;
+}
+-----------------------------------------------------------
+
+Add new gadget:Add gadget code
+-----------------------------------------------------------
+function updateGadget004(click_uri)
+{
+    $('#gadget-004').empty();
+    var sparql_val = getSPARQL004().trim();
+    sparql_val = sparql_val.replace(/<%URI%>/g, '<'+click_uri+'>');
+    var Q = new sgvizler.Query();
+    Q.query(sparql_val)
+       .endpointURL("https://lod4all.net/api/sparql?token=jist2018")
+       .endpointOutputFormat("json")
+       .chartFunction("google.visualization.PieChart")
+       .draw("gadget-004");
+}
+-----------------------------------------------------------
+
+Add new gadget: Edit dashboard code
+-----------------------------------------------------------
+<div id="gadget-004" style="border: dashed 0.5px #5b8bd0; height:300px; overflow:scroll;"></div>
 -----------------------------------------------------------
