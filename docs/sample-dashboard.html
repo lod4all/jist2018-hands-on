@@ -14,8 +14,7 @@
     <script src="./d3sparql/d3sparql.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript" src="https://mgskjaeveland.github.io/sgvizler/v/0.6/sgvizler.js"></script>
-    <!--<script type="text/javascript" src="./js/update-gadgets-by-d3sparql.js"></script>-->
-    <!--<script type="text/javascript" src="./js/update-gadgets-by-sgvizler.js"></script>-->
+    <script type="text/javascript" src="./js/sparql-queries.js"></script>
     <script type="text/javascript" src="./js/update-gadgets.js"></script>
   </head>
   <body>
@@ -38,75 +37,9 @@
     <div id="entities-search-result"></div>
     </div>
     <div class="col-lg-8">
-    <!------ gadget 001 ------>
-    <div class="row">
-    <div class="col-lg-6" id="gadget-001" style="border: dashed 0.5px #5b8bd0; height:400px; overflow:scroll;"></div>
-    <div class="col-lg-6">
-      <textarea id="sparql-001" cols="60" rows="15" style="display: none;">
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX l4a-fin: <http://lod4all.net/ontology/financial/>
-
-SELECT DISTINCT * WHERE {
-    <%URI%> skos:prefLabel ?name .
-    OPTIONAL{<%URI%> l4a-fin:stname ?stname.}
-    OPTIONAL{<%URI%> l4a-fin:address ?address.}
-    OPTIONAL{<%URI%> l4a-fin:city ?city.}
-    OPTIONAL{<%URI%> l4a-fin:county ?county.}
-    OPTIONAL{<%URI%> l4a-fin:zip ?zip.}
-    OPTIONAL{<%URI%> l4a-fin:estYmd ?estYmd.}
-    OPTIONAL{<%URI%> l4a-fin:uninum ?uninum.}
-    OPTIONAL{<%URI%> l4a-fin:fiUninum ?fiUninum.}
-    OPTIONAL{<%URI%> l4a-fin:cbsaNo ?cbsaNo.}
-    OPTIONAL{<%URI%> l4a-fin:cbsaMetroName ?cbsaMetroName.}
-}
-      </textarea>
-      </div>
-    </div>
-    <!------ end gadget 001 ------>
-    <!------ start gadget 002 ------>
-    <div class="row">
-    <div class="col-lg-6" id="gadget-002" style="border: dashed 0.5px #5b8bd0; height:400px; overflow:scroll;"></div>
-    <div class="col-lg-6">
-    <textarea id="sparql-002" cols="60" rows="15" style="display: none;">
-PREFIX l4a-fin: <http://lod4all.net/ontology/financial/>
-
-SELECT ?date (xsd:decimal(?org_value) as ?value) WHERE {
-    <%URI%> l4a-fin:data ?financial_data.
-    ?financial_data l4a-fin:date ?org_date .
-    ?financial_data l4a-fin:asset ?org_value .
-    BIND(strbefore(?org_date,"T") as ?date)
-} ORDER BY (?date)
-
-      </textarea>
-    </div>
-    </div>
-    <!------ end gadget 002 ------>
-    <!------ start gadget 003 ------>
-    <div class="row">
-    <div class="col-lg-6" id="gadget-003" style="border: dashed 0.5px #5b8bd0; height:400px; overflow:scroll;"></div>
-    <div class="col-lg-6">
-    <textarea id="sparql-003" cols="60" rows="15" style="display: none;">
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX schema: <http://schema.org/>
-PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
-
-SELECT DISTINCT * WHERE {
-    <%URI%> foaf:primaryTopic ?dbpedia.
-    ?dbpedia (rdfs:label | skos:prefLabel | foaf:name | schema:name ) ?name .
-    ?dbpedia rdfs:comment ?comment.
-    OPTIONAL{ ?dbpedia foaf:homepage ?homepage . }
-    OPTIONAL{ ?dbpedia dbpedia-owl:formationDate ?formationDate . }
-    OPTIONAL{ ?dbpedia dbpedia-owl:foundationPlace ?foundationPlace. }
-    OPTIONAL{ ?dbpedia dbpedia-owl:foundedBy ?foundedBy. }
-    FILTER langMatches(lang(?name), "en")
-    FILTER langMatches(lang(?comment), "en")
-}
-      </textarea>
-    </div>
-    </div>
-    <!------ end gadget 003 ------>
+    <div id="gadget-001" style="border: dashed 0.5px #5b8bd0; height:400px; overflow:scroll;"></div>
+    <div id="gadget-002" style="border: dashed 0.5px #5b8bd0; height:400px; overflow:scroll;"></div>
+    <div id="gadget-003" style="border: dashed 0.5px #5b8bd0; height:400px; overflow:scroll;"></div>
     </div>
     </div>
   </body>
