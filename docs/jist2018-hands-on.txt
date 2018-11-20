@@ -83,6 +83,20 @@ SELECT ?date (xsd:decimal(?org_assetfor) as ?assetfor) (xsd:decimal(?org_asset) 
 } ORDER BY (?date)
 -----------------------------------------------------------
 
+Change KPI
+-----------------------------------------------------------
+PREFIX l4a-fin: <http://lod4all.net/ontology/financial/>
+
+SELECT ?date ?insolvency WHERE {
+    <%URI%> l4a-fin:data ?financial_data.
+    ?financial_data l4a-fin:date ?org_date .
+    ?financial_data l4a-fin:asset ?asset .
+    ?financial_data l4a-fin:liab ?liab.
+    BIND(xsd:decimal(xsd:decimal(?asset) - xsd:decimal(?liab)) as ?insolvency).
+    BIND(strbefore(?org_date,"T") as ?date)
+} ORDER BY (?date)
+-----------------------------------------------------------
+
 Add new gadget
 -----------------------------------------------------------
 SELECT ?county (count(?branch) as ?num_of_branches) where
@@ -125,18 +139,4 @@ SELECT ?county (count(?branch) as ?num_of_branches) where
       </textarea>
     </div>
     </div>
------------------------------------------------------------
-
-Change KPI
------------------------------------------------------------
-PREFIX l4a-fin: <http://lod4all.net/ontology/financial/>
-
-SELECT ?date ?insolvency WHERE {
-    <%URI%> l4a-fin:data ?financial_data.
-    ?financial_data l4a-fin:date ?org_date .
-    ?financial_data l4a-fin:asset ?asset .
-    ?financial_data l4a-fin:liab ?liab.
-    BIND(xsd:decimal(xsd:decimal(?asset) - xsd:decimal(?liab)) as ?insolvency).
-    BIND(strbefore(?org_date,"T") as ?date)
-} ORDER BY (?date)
 -----------------------------------------------------------
