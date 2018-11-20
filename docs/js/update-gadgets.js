@@ -2,8 +2,8 @@ function setSgvizler()
 {
     sgvizler
       .defaultEndpointURL("https://lod4all.net/api/sparql")
-      .defaultChartWidth(500)
-      .defaultChartHeight(480);
+      .defaultChartWidth(600)
+      .defaultChartHeight(400);
 }
 
 function updateGadgets(click_uri)
