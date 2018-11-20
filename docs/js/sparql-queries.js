@@ -16,6 +16,7 @@ SELECT DISTINCT * WHERE {
     OPTIONAL{<%URI%> l4a-fin:fiUninum ?fiUninum.}
     OPTIONAL{<%URI%> l4a-fin:cbsaNo ?cbsaNo.}
     OPTIONAL{<%URI%> l4a-fin:cbsaMetroName ?cbsaMetroName.}
+}
    `
    return sparql_query;
 }
