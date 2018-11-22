@@ -25,7 +25,7 @@ This hands-on document is https://github.com/lod4all/jist2018-hands-on/blob/mast
 
 # Hands-on works
 
-https://<your account name>.github.io/jist2018-hands-on/trial1/sgvizler/chart.html
+https://[your_account_name].github.io/jist2018-hands-on/trial1/sgvizler/chart.html
 
 ## Trial1:Visualizing corporate data
 
@@ -97,7 +97,7 @@ KPI List
 
 ## Trial2: Enhancing sample application
 
-https://<your account name>.github.io/jist2018-hands-on/trial2/app.html
+https://[your_account_name].github.io/jist2018-hands-on/trial2/app.html
 
 Trial 2-1: Trial2-1: Changing gadgets
 ```
