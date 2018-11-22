@@ -71,9 +71,8 @@ Company URL list: https://lod4all.github.io/jist2018-hands-on/companies_uri.txt
 
 KPI List
 
-|head|head|head|head|
-|:-:|:-:|:-:|:-:|
 |Predicate URI|Label|Label(Japanese 日本語)|Label(Chinese 中文)|
+|:-:|:-:|:-:|:-:|
 |l4a-fin:asset|Total assets|総資産|总资产|
 |l4a-fin:assetfor|Total assets in foreign offices|外国の総資産|国外资产总额|
 |l4a-fin:chbal|Cash & Balances due from depository institutions|現金と、預貯金取扱金融機関の残高|处理存款和储蓄的金融机构的现金和未结余额|
