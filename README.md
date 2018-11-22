@@ -85,7 +85,7 @@ l4a-fin:idtrnmu,States and political subdivisions in the U.S.,州および行政
 l4a-fin:ilndom,Interest income: Domestic office loans,国内法人ローンの利息収入,国内公司?款利息收入
 l4a-fin:ilnfor,Interest income: Foreign office loans,国外法人ローンの利息収入,外国公司?款的利息收入
 l4a-fin:intan,Goodwill and other intangibles,営業権と他の無形財産,商誉和其他无形财产
-l4a-fin:intinc,Total interest income,総利息収入,利息?收入
+l4a-fin:intinc,Total interest income,総利息収入,利息总收入
 l4a-fin:liab,Total Liabilities,負債総額,总债务
 l4a-fin:noni,Total noninterest income,総非金利収入,非利息收入总额
 l4a-fin:nonix,Total noninterest expense,総非金利経費,非利息费用总额
