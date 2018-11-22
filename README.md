@@ -1,5 +1,5 @@
 # About this page
-These materials are used in "Practical Use of a Knowledge Graph with Case Studies using Semantic Web Publishing Tools" tutorial session.
+These materials are used in "Practical Use of a Knowledge Graph with Case Studies using Semantic Web Publishing Tools" hands-on session.
 
 Information about JIST 2018 tutorial is refered a following page: http://jist2018.knowledge-graph.jp/pages/program/tutorials.html
 
