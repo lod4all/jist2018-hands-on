@@ -69,8 +69,8 @@ SELECT ?date (xsd:decimal(?org_value) as ?value) WHERE {
 } ORDER BY (?date)
 ```
 
-LOD4ALL instance search function link: http://lod4all.net/datasetdetail.html?graph=http://lod4all.net/graph/fdic
-Company URL list: https://lod4all.github.io/jist2018-hands-on/companies_uri.txt
+- LOD4ALL instance search function link: http://lod4all.net/datasetdetail.html?graph=http://lod4all.net/graph/fdic
+- Company URL list: https://lod4all.github.io/jist2018-hands-on/companies_uri.txt
 
 KPI List
 
