@@ -1,4 +1,4 @@
-# jist2018-hands-on
+# About this page
 These materials are used in "Practical Use of a Knowledge Graph with Case Studies using Semantic Web Publishing Tools" tutorial session.
 
 Information about JIST 2018 tutorial is refered a following page: http://jist2018.knowledge-graph.jp/pages/program/tutorials.html
