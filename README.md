@@ -202,7 +202,7 @@ function updateGadgets(click_uri)
  </div>
 ```
 
-#Remarks
+# Remarks
 Feel free to use/share today’s material as you wish.
 
 If you develop any applications using LOD4ALL, please contact us so we can introduce your application in the LOD4ALL application page.
