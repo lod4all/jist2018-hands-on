@@ -12,6 +12,6 @@ The Federal Deposit Insurance Corporation (FDIC) is an independent agency create
 FUJITSU Laboratories have converted the FDIC data to RDF data, and have linked to DBpedia, and have published this dataset on LOD4ALL.
 The FDIC RDF data and DBpedia are loaded on LOD4ALL.LOD4ALL is LOD search engine that FUJITSU Laboratories developed.This engine Crawl Linked Open Data from the Web and provide a high-speed search service.
 
-
+https://user-images.githubusercontent.com/43978371/48887466-acf1a480-ee72-11e8-8034-ac9c73140822.jpg
 
 # Environment Setup
