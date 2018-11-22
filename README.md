@@ -92,7 +92,126 @@ KPI List
 |l4a-fin:nonix|Total noninterest expense|総非金利経費|非利息费用总额|
 |l4a-fin:numemp|Total employees (full-time equivalent)|総従業員 (常勤職換算)|员工总数 （全职工作转换）|
 
+## Trial2: Enhancing sample application
 
+Trial 2-1: Trial2-1: Changing gadgets
+```
+function getSPARQL002()
+{
+    var sparql_query = `
+PREFIX l4a-fin: <http://lod4all.net/ontology/financial/>
+
+SELECT ?date (xsd:decimal(?org_asset) as ?asset) (xsd:decimal(?org_liab) as ?liab) WHERE {
+    <%URI%> l4a-fin:data ?financial_data.
+    ?financial_data l4a-fin:date ?org_date .
+    ?financial_data l4a-fin:asset ?org_asset.
+    ?financial_data l4a-fin:liab ?org_liab.
+    BIND(strbefore(?org_date,"T") as ?date)
+} ORDER BY (?date) 
+    `
+    return sparql_query;
+}
+```
+
+Trial 2-2: Changing gadgets
+```
+function updateGadget002(click_uri)
+{
+    $('#gadget-002').empty();
+    var sparql_val = getSPARQL002().trim();
+    sparql_val = sparql_val.replace(/<%URI%>/g, '<'+click_uri+'>');
+    var Q = new sgvizler.Query();
+    Q.query(sparql_val)
+       .endpointURL("https://lod4all.net/api/sparql")
+       .endpointOutputFormat("json")
+       .chartFunction("google.visualization.AreaChart")
+       .draw("gadget-002");
+}
+```
+
+Trial 2-3: Changing gadgets
+```
+function getSPARQL002()
+{
+    var sparql_query = `
+PREFIX l4a-fin: <http://lod4all.net/ontology/financial/>
+
+SELECT ?date ?insolvency WHERE {
+    <%URI%> l4a-fin:data ?financial_data.
+    ?financial_data l4a-fin:date ?org_date .
+    ?financial_data l4a-fin:asset ?asset .
+    ?financial_data l4a-fin:liab ?liab.
+    BIND(xsd:decimal(xsd:decimal(?asset) - xsd:decimal(?liab)) as ?insolvency).
+    BIND(strbefore(?org_date,"T") as ?date)
+} ORDER BY (?date)
+    `
+    return sparql_query;
+}
+```
+
+Trial 2-4: Adding new gadget
+```
+function getSPARQL004()
+{
+    var sparql_query = `
+PREFIX l4a-fin: <http://lod4all.net/ontology/financial/>
+
+SELECT ?county (xsd:decimal(count(?branch)) as ?num_of_branches) where
+{
+  <%URI%> l4a-fin:branch ?branch.
+  ?branch l4a-fin:county ?county.
+} group by ?county order by desc(?num_of_branches)
+    `
+    return sparql_query;
+}
+```
+
+```
+function updateGadget004(click_uri)
+{
+    $('#gadget-004').empty();
+    var sparql_val = getSPARQL004().trim();
+    sparql_val = sparql_val.replace(/<%URI%>/g, '<'+click_uri+'>');
+    var Q = new sgvizler.Query();
+    Q.query(sparql_val)
+       .endpointURL("https://lod4all.net/api/sparql?token=jist2018-data")
+       .endpointOutputFormat("json")
+       .chartFunction("google.visualization.PieChart")
+       .draw("gadget-004");
+}
+```
+
+```
+function updateGadgets(click_uri)
+{
+    setSgvizler();
+
+    updateGadget001(click_uri);
+    updateGadget002(click_uri);
+    updateGadget003(click_uri);
+    updateGadget004(click_uri);
+}
+```
+
+```
+ <div class="col-lg-7">
+    <div id="gadget-001" style="border: dashed 0.5px #5b8bd0; height:300px; overflow:scroll;"></div>
+    <div id="gadget-002" style="border: dashed 0.5px #5b8bd0; height:300px; overflow:scroll;"></div>
+    <div id="gadget-003" style="border: dashed 0.5px #5b8bd0; height:300px; overflow:scroll;"></div>
+    <div id="gadget-004" style="border: dashed 0.5px #5b8bd0; height:300px; overflow:scroll;"></div>
+ </div>
+```
+
+#Remarks
+Feel free to use/share today’s material as you wish.
+
+If you develop any applications using LOD4ALL, please contact us so we can introduce your application in the LOD4ALL application page.
+
+If you have any questions, you may contact us from a LOD4ALL contact page.
+
+Page information
+LOD4ALL application page: http://lod4all.net/application.html
+LOD4ALL contact page:  http://lod4all.net/contact.html
 
 # Data example
 
