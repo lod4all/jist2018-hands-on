@@ -3,10 +3,6 @@ These materials are used in "Practical Use of a Knowledge Graph with Case Studie
 
 Information about JIST 2018 tutorial is refered a following page: http://jist2018.knowledge-graph.jp/pages/program/tutorials.html
 
-Feel free to use/share today’s material as you wish.
-
+Feel free to use/share this material.
 If you have any questions, you may contact us using the LOD4ALL contact page.
-
 The LOD4ALL contact page as following: http://lod4all.net/contact.html
-
-This GitHub page is https://lod4all.github.io/jist2018-hands-on/
