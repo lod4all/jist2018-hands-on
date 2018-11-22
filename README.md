@@ -14,10 +14,84 @@ If you see a examples of FDIC RDF data, please check a data example section.The 
 
 ![LOD4ALL](https://user-images.githubusercontent.com/43978371/48887466-acf1a480-ee72-11e8-8034-ac9c73140822.jpg "LOD4ALL")
 
-
+This hands-on document is .
 
 # Environment Setup
-1.Fork hands-on materials to your account from “https://github.com/lod4all/jist2018-hands-on”
+1.Establish GitHub account at https://github.com/
+2.Login your account.
+3.Fork hands-on materials to your account from “https://github.com/lod4all/jist2018-hands-on”
+4.Active GitHub Pages in your repository.Need to wait a few minutes until activating GitHub Pages...
+5.Check your GitHub page using a browser. The URL is "https://<your account name>.github.io/jist2018-hands-on/"
+
+# Hands-on works
+## Trial1:Visualizing corporate data
+
+Trial 1-1: Default query
+```
+PREFIX l4a-fin: <http://lod4all.net/ontology/financial/>
+PREFIX l4a-fin-r: <http://lod4all.net/resource/financial/> 
+
+SELECT ?date (xsd:decimal(?org_value) as ?value) WHERE {
+    l4a-fin-r:fdicCert-3511 l4a-fin:data ?financial_data.
+    ?financial_data l4a-fin:date ?org_date .
+    ?financial_data l4a-fin:asset ?org_value .
+    BIND(strbefore(?org_date,"T") as ?date)
+} ORDER BY (?date)
+
+```
+
+Trial 1-2: Change company
+```
+PREFIX l4a-fin: <http://lod4all.net/ontology/financial/>
+PREFIX l4a-fin-r: <http://lod4all.net/resource/financial/> 
+
+SELECT ?date (xsd:decimal(?org_value) as ?value) WHERE {
+    l4a-fin-r:fdicCert-628 l4a-fin:data ?financial_data.
+    ?financial_data l4a-fin:date ?org_date .
+    ?financial_data l4a-fin:asset ?org_value .
+    BIND(strbefore(?org_date,"T") as ?date)
+} ORDER BY (?date)
+```
+
+Trial 1-3: Change KPI
+```
+PREFIX l4a-fin: <http://lod4all.net/ontology/financial/>
+PREFIX l4a-fin-r: <http://lod4all.net/resource/financial/> 
+
+SELECT ?date (xsd:decimal(?org_value) as ?value) WHERE {
+    l4a-fin-r:fdicCert-628 l4a-fin:data ?financial_data.
+    ?financial_data l4a-fin:date ?org_date .
+    ?financial_data l4a-fin:intinc ?org_value .
+    BIND(strbefore(?org_date,"T") as ?date)
+} ORDER BY (?date)
+```
+
+LOD4ALL instance search function link: http://lod4all.net/datasetdetail.html?graph=http://lod4all.net/graph/fdic
+Company URL list: https://lod4all.github.io/jist2018-hands-on/companies_uri.txt
+
+KPI List
+
+Predicate URI,Label,Label(Japanese 日本語),Label(Chinese 中文)
+l4a-fin:asset,Total assets,総資産,总资产
+l4a-fin:assetfor,Total assets in foreign offices,外国の総資産,国外资产总额
+l4a-fin:chbal,Cash & Balances due from depository institutions,現金と、預貯金取扱金融機関の残高,处理存款和储蓄的金融机构的现金和未结余额
+l4a-fin:dep,Total deposits,総預金,总存款
+l4a-fin:depi,Interest-bearing deposits,利息付き預金,利息存款
+l4a-fin:eintexp,Total interest expense,総利息費用,毛利费用
+l4a-fin:eq,Bank equity capital,銀行自己資本,银行资本
+l4a-fin:eqtot,Total equity capital,総自己資本,总资本
+l4a-fin:idtrngov,U.S. Government,米国政府とのトランザクション総額,与美国政府的交易总额
+l4a-fin:idtrnmu,States and political subdivisions in the U.S.,州および行政的小区域との総トランザクション総額,具有州和行政子区域的总交易金额
+l4a-fin:ilndom,Interest income: Domestic office loans,国内法人ローンの利息収入,国内公司?款利息收入
+l4a-fin:ilnfor,Interest income: Foreign office loans,国外法人ローンの利息収入,外国公司?款的利息收入
+l4a-fin:intan,Goodwill and other intangibles,営業権と他の無形財産,商誉和其他无形财产
+l4a-fin:intinc,Total interest income,総利息収入,利息?收入
+l4a-fin:liab,Total Liabilities,負債総額,总债务
+l4a-fin:noni,Total noninterest income,総非金利収入,非利息收入总额
+l4a-fin:nonix,Total noninterest expense,総非金利経費,非利息费用总额
+l4a-fin:numemp,Total employees (full-time equivalent),総従業員 (常勤職換算),员工总数 （全职工作转换）
+
+
 
 # Data example
 
