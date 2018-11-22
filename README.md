@@ -15,7 +15,7 @@ If you see a examples of FDIC RDF data, please check a data example section.The 
 
 ![LOD4ALL](https://user-images.githubusercontent.com/43978371/48887466-acf1a480-ee72-11e8-8034-ac9c73140822.jpg "LOD4ALL")
 
-This hands-on document is .
+This hands-on document is https://github.com/lod4all/jist2018-hands-on/blob/master/JIST2018_Hands_on_20181126.pdf
 
 # Environment Setup
 1.Establish GitHub account at https://github.com/
@@ -25,6 +25,9 @@ This hands-on document is .
 5.Check your GitHub page using a browser. The URL is "https://<your account name>.github.io/jist2018-hands-on/"
 
 # Hands-on works
+
+https://<your account name>.github.io/jist2018-hands-on/trial1/sgvizler/chart.html
+
 ## Trial1:Visualizing corporate data
 
 Trial 1-1: Default query
@@ -94,6 +97,8 @@ KPI List
 |l4a-fin:numemp|Total employees (full-time equivalent)|総従業員 (常勤職換算)|员工总数 （全职工作转换）|
 
 ## Trial2: Enhancing sample application
+
+https://<your account name>.github.io/jist2018-hands-on/trial2/app.html
 
 Trial 2-1: Trial2-1: Changing gadgets
 ```
