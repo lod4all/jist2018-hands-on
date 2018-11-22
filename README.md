@@ -10,7 +10,15 @@ The LOD4ALL contact page as following: http://lod4all.net/contact.html
 The Federal Deposit Insurance Corporation (FDIC) is an independent agency created by the U.S. Congress to maintain stability and public confidence in the nation's financial system by insuring deposits, examining and supervising financial institutions for safety and soundness and consumer protection, and managing receiverships.
 
 FUJITSU Laboratories have converted the FDIC data to RDF data, and have linked to DBpedia, and have published this dataset on LOD4ALL.
-The example data are a following:
+If you see a examples of FDIC RDF data, please check a data example section.The FDIC RDF data and DBpedia are loaded on LOD4ALL.LOD4ALL is LOD search engine that FUJITSU Laboratories developed.This engine Crawl Linked Open Data from the Web and provide a high-speed search service.
+
+![LOD4ALL](https://user-images.githubusercontent.com/43978371/48887466-acf1a480-ee72-11e8-8034-ac9c73140822.jpg "LOD4ALL")
+
+
+
+# Environment Setup
+
+# Data example
 
 ```
 <http://lod4all.net/resource/financial/fdicCert-3511> a <http://lod4all.net/ontology/financial/FdicOffice> ; 
@@ -225,11 +233,3 @@ The example data are a following:
         rdfs:label "Total employees (full-time equivalent)"@en;
         <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
 ```
-
-The FDIC RDF data and DBpedia are loaded on LOD4ALL.LOD4ALL is LOD search engine that FUJITSU Laboratories developed.This engine Crawl Linked Open Data from the Web and provide a high-speed search service.
-
-![LOD4ALL](https://user-images.githubusercontent.com/43978371/48887466-acf1a480-ee72-11e8-8034-ac9c73140822.jpg "LOD4ALL")
-
-
-
-# Environment Setup
