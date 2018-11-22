@@ -18,11 +18,11 @@ If you see a examples of FDIC RDF data, please check a data example section.The 
 This hands-on document is https://github.com/lod4all/jist2018-hands-on/blob/master/JIST2018_Hands_on_20181126.pdf
 
 # Environment Setup
-1.Establish GitHub account at https://github.com/
-2.Login your account.
-3.Fork hands-on materials to your account from “https://github.com/lod4all/jist2018-hands-on”
-4.Active GitHub Pages in your repository.Need to wait a few minutes until activating GitHub Pages...
-5.Check your GitHub page using a browser. The URL is "https://<your account name>.github.io/jist2018-hands-on/"
+1. Establish GitHub account at https://github.com/
+2. Login your account.
+3. Fork hands-on materials to your account from “https://github.com/lod4all/jist2018-hands-on”
+4. Active GitHub Pages in your repository.Need to wait a few minutes until activating GitHub Pages...
+5. Check your GitHub page using a browser. The URL is "https://<your account name>.github.io/jist2018-hands-on/"
 
 # Hands-on works
 
