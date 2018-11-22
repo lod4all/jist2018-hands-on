@@ -71,25 +71,27 @@ Company URL list: https://lod4all.github.io/jist2018-hands-on/companies_uri.txt
 
 KPI List
 
-Predicate URI,Label,Label(Japanese 日本語),Label(Chinese 中文)
-l4a-fin:asset,Total assets,総資産,总资产
-l4a-fin:assetfor,Total assets in foreign offices,外国の総資産,国外资产总额
-l4a-fin:chbal,Cash & Balances due from depository institutions,現金と、預貯金取扱金融機関の残高,处理存款和储蓄的金融机构的现金和未结余额
-l4a-fin:dep,Total deposits,総預金,总存款
-l4a-fin:depi,Interest-bearing deposits,利息付き預金,利息存款
-l4a-fin:eintexp,Total interest expense,総利息費用,毛利费用
-l4a-fin:eq,Bank equity capital,銀行自己資本,银行资本
-l4a-fin:eqtot,Total equity capital,総自己資本,总资本
-l4a-fin:idtrngov,U.S. Government,米国政府とのトランザクション総額,与美国政府的交易总额
-l4a-fin:idtrnmu,States and political subdivisions in the U.S.,州および行政的小区域との総トランザクション総額,具有州和行政子区域的总交易金额
-l4a-fin:ilndom,Interest income: Domestic office loans,国内法人ローンの利息収入,国内公司?款利息收入
-l4a-fin:ilnfor,Interest income: Foreign office loans,国外法人ローンの利息収入,外国公司?款的利息收入
-l4a-fin:intan,Goodwill and other intangibles,営業権と他の無形財産,商誉和其他无形财产
-l4a-fin:intinc,Total interest income,総利息収入,利息总收入
-l4a-fin:liab,Total Liabilities,負債総額,总债务
-l4a-fin:noni,Total noninterest income,総非金利収入,非利息收入总额
-l4a-fin:nonix,Total noninterest expense,総非金利経費,非利息费用总额
-l4a-fin:numemp,Total employees (full-time equivalent),総従業員 (常勤職換算),员工总数 （全职工作转换）
+|head|head|head|head|
+|:-:|:-:|:-:|:-:|
+|Predicate URI|Label|Label(Japanese 日本語)|Label(Chinese 中文)|
+|l4a-fin:asset|Total assets|総資産|总资产|
+|l4a-fin:assetfor|Total assets in foreign offices|外国の総資産|国外资产总额|
+|l4a-fin:chbal|Cash & Balances due from depository institutions|現金と、預貯金取扱金融機関の残高|处理存款和储蓄的金融机构的现金和未结余额|
+|l4a-fin:dep|Total deposits|総預金|总存款|
+|l4a-fin:depi|Interest-bearing deposits|利息付き預金|利息存款|
+|l4a-fin:eintexp|Total interest expense|総利息費用|毛利费用|
+|l4a-fin:eq|Bank equity capital|銀行自己資本|银行资本|
+|l4a-fin:eqtot|Total equity capital|総自己資本|总资本|
+|l4a-fin:idtrngov|U.S. Government|米国政府とのトランザクション総額|与美国政府的交易总额|
+|l4a-fin:idtrnmu|States and political subdivisions in the U.S.|州および行政的小区域との総トランザクション総額|具有州和行政子区域的总交易金额|
+|l4a-fin:ilndom|Interest income: Domestic office loans|国内法人ローンの利息収入|国内公司?款利息收入|
+|l4a-fin:ilnfor|Interest income: Foreign office loans|国外法人ローンの利息収入|外国公司?款的利息收入|
+|l4a-fin:intan|Goodwill and other intangibles|営業権と他の無形財産|商誉和其他无形财产|
+|l4a-fin:intinc|Total interest income|総利息収入|利息总收入|
+|l4a-fin:liab|Total Liabilities|負債総額|总债务|
+|l4a-fin:noni|Total noninterest income|総非金利収入|非利息收入总额|
+|l4a-fin:nonix|Total noninterest expense|総非金利経費|非利息费用总额|
+|l4a-fin:numemp|Total employees (full-time equivalent)|総従業員 (常勤職換算)|员工总数 （全职工作转换）|
 
 
 
