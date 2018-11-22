@@ -10,8 +10,9 @@ The LOD4ALL contact page as following: http://lod4all.net/contact.html
 The Federal Deposit Insurance Corporation (FDIC) is an independent agency created by the U.S. Congress to maintain stability and public confidence in the nation's financial system by insuring deposits, examining and supervising financial institutions for safety and soundness and consumer protection, and managing receiverships.
 
 FUJITSU Laboratories have converted the FDIC data to RDF data, and have linked to DBpedia, and have published this dataset on LOD4ALL.
+The data exmaple is a following:
 
-```Data example
+```
 <http://lod4all.net/resource/financial/fdicCert-3511> a <http://lod4all.net/ontology/financial/FdicOffice> ; 
 	a <http://www.w3.org/ns/org#Organization> ; 
 	<http://lod4all.net/ontology/financial/cbsaMetroFlg> "1"^^xsd:string ; 
