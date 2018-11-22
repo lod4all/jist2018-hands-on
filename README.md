@@ -17,6 +17,7 @@ If you see a examples of FDIC RDF data, please check a data example section.The 
 
 
 # Environment Setup
+1.Fork hands-on materials to your account from “https://github.com/lod4all/jist2018-hands-on”
 
 # Data example
 
