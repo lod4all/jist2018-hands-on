@@ -24,7 +24,7 @@ function searchURIByKeyword()
 
     var lfasparql = new LFASparql();
     lfasparql.executeSparql({
-        query: sparql_val,
+        sparql: sparql_val,
         success: successRequest,
         error: errorRequest
     });
