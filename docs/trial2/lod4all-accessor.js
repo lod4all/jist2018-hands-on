@@ -1,36 +1,23 @@
-function getSearchBankByKeyword()
-{
-   var sparql_query = `
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX l4a-fin: <http://lod4all.net/ontology/financial/>
-
-SELECT distinct ?uri ?name WHERE{
-    ?uri a l4a-fin:FidicOffice .
-    ?uri skos:prefLabel ?name .
-    FILTER regex(str(?name), "%KEYWORD%")
-}
-   `
-   return sparql_query;
-}
-
 function searchURIByKeyword()
 {
     $('#entities-search-result').empty();
     $('#status').text("Searching...");
 
     var keyword_val = document.getElementById("keyword").value.trim();
-    var sparql_val = getSearchBankByKeyword().trim();
-    sparql_val = sparql_val.replace(/%KEYWORD%/g, keyword_val);
-
+    var graph_val = "http://lod4all.net/graph/fdic";	
     var lfasparql = new LFASparql();
-    lfasparql.executeSparql({
-        sparql: sparql_val,
-        success: successRequest,
+    lfasparql.executeLiteral({
+        async: true,
+        graph: graph_val,
+        query: keyword_val,
+        offset: 0,
+        size: 10000,
+        success: successKeywordRequest,
         error: errorRequest
     });
 }
 
-function successRequest(data)
+function successKeywordRequest(data)
 {
     $('#status').text("Done.");
 
@@ -50,23 +37,26 @@ function successRequest(data)
 
     var tbody = $('<tbody>');
  
-    for(var i = 0; i < data.length; i++) {
-        var items = data[i];
-	var subject_val = items["uri"]["value"];
-        var object_val = items["name"]["value"];
+    triples = data["triples"];
+    for (var i = 0; i < triples.length; i++) {
+        var graph_val = triples[i]["graph"];
+        if("http://lod4all.net/graph/fdic" == graph_val){
+            var subject_val = triples[i]["subject"];
+            var object_val = triples[i]["object"];
 
-        var tr = $('<tr>');
-        var td = $('<td>');
-	var a_tag = $('<a>');
+            var tr = $('<tr>');
+            var td = $('<td>');
+	    var a_tag = $('<a>');
 	    a_tag.attr('href','javascript:void(0);');
 	    a_tag.attr('onclick','updateGadgets("'+subject_val+'");');
 	    a_tag.text(subject_val);
             td.append(a_tag);
             tr.append(td);
-        var td = $('<td>');
+            var td = $('<td>');
             td.text(object_val);
             tr.append(td);
             tbody.append(tr);
+        }
     }
 
     table_elem.append(tbody);
